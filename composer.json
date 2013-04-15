@@ -2,7 +2,7 @@
     "name": "jhv/payment-core-bundle",
     "type": "symfony-bundle",
     "description": "PaymentCoreBundle",
-    "keywords": ["payment, payment core"],
+    "keywords": ["payment", "payment core"],
     "authors": [
         {
             "name": "Jorge Vahldick",
