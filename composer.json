@@ -10,6 +10,8 @@
         },
     ],
     
+    "minimum-stability": "dev",
+    
     "require": {
         "jhv/payment-service-bundle": "@dev"
     },
