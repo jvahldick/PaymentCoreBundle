@@ -44,6 +44,7 @@ class Configuration implements ConfigurationInterface
                         ->scalarNode('operation')->defaultValue('JHV\\Payment\\CoreBundle\\Listener\\OperationListener')->end()
                         ->scalarNode('transaction')->defaultValue('JHV\\Payment\\CoreBundle\\Listener\\TransactionListener')->end()
                     ->end()
+                    ->addDefaultsIfNotSet()
                 ->end()
                 
             ->end()
