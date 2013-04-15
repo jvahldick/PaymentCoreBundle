@@ -1,0 +1,20 @@
+{
+    "name": "jhv/payment-core-bundle",
+    "type": "symfony-bundle",
+    "description": "PaymentCoreBundle",
+    "keywords": ["payment, payment core"],
+    "authors": [
+        {
+            "name": "Jorge Vahldick",
+            "email": "jvahldick@gmail.com"
+        },
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "jhv/payment-service-bundle": "@dev"
+    },
+    "autoload": {
+        "psr-0": { "JHV\\Payment\\CoreBundle": "" }
+    },
+    "target-dir": "JHV/Payment/CoreBundle"
+}
