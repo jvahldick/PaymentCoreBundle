@@ -9,9 +9,16 @@
             "email": "jvahldick@gmail.com"
         },
     ],
-    "minimum-stability": "dev",
+    
+    "minimum-stability": "alpha",
+    
+    "require": {
+        "jhv/payment-service-bundle": "@dev"
+    },
+    
     "autoload": {
         "psr-0": { "JHV\\Payment\\CoreBundle": "" }
     },
+    
     "target-dir": "JHV/Payment/CoreBundle"
 }
