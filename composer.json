@@ -10,9 +10,6 @@
         },
     ],
     "minimum-stability": "dev",
-    "require": {
-        "jhv/payment-service-bundle": "@dev"
-    },
     "autoload": {
         "psr-0": { "JHV\\Payment\\CoreBundle": "" }
     },
