@@ -1,0 +1,16 @@
+services:
+    jhv_payment_core.entity_manager:
+        class           : Doctrine\\ORM\\EntityManager
+        factory_service : doctrine
+        factory_method  : getManager
+        public          : false
+        arguments       :
+            - "%jhv_payment_core.parameter.connection_name%"
+  
+    jhv_payment_core.manager.payment:
+        class     : "%jhv_payment_core.parameter.payment_manager.class%"
+        arguments : 
+            - "@jhv_payment_core.entity_manager"
+            - "@jhv_payment_service.manager.plugin"
+            - "@jhv_payment_service.manager.payment_method"
+            - "%jhv_payment_core.parameter.entity_classes%"

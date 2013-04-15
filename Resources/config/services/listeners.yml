@@ -1,0 +1,29 @@
+### Serviços referentes a listener
+services:
+    ### Listener de operação
+    jhv_payment_core.listener.operation.pre_persist:
+        class       : "%jhv_payment_core.parameter.listener.operation.class%"
+        public      : "false"
+        tags        :
+            - { name: doctrine.event_listener, event: prePersist }
+    
+    jhv_payment_core.listener.operation.pre_update:
+        class       : "%jhv_payment_core.parameter.listener.operation.class%"
+        public      : "false"
+        tags        :
+            - { name: doctrine.event_listener, event: preUpdate }
+            
+            
+            
+    ### Listener de transação
+    jhv_payment_core.listener.transaction.pre_persist:
+        class       : "%jhv_payment_core.parameter.listener.transaction.class%"
+        public      : "false"
+        tags        :
+            - { name: doctrine.event_listener, event: prePersist }
+    
+    jhv_payment_core.listener.transaction.pre_update:
+        class       : "%jhv_payment_core.parameter.listener.transaction.class%"
+        public      : "false"
+        tags        :
+            - { name: doctrine.event_listener, event: preUpdate }

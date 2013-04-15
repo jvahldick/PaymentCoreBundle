@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                    http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <mapped-superclass name="JHV\Payment\CoreBundle\Entity\Transaction">
+        <!-- Identificador -->
+        <id name="id" type="bigint" column="id">
+            <generator strategy="AUTO" />
+        </id>
+        
+        <!-- Valores -->
+        <field name="requestedAmount"   column="requested_amount" type="decimal" scale="5" nullable="false" />
+        <field name="processedAmount"   column="processed_amount" type="decimal" scale="5" nullable="false" />
+        
+        <!-- Operação -->
+        <field name="operationType" column="operation_type" type="smallint" nullable="false" />
+        
+        <!-- Informações de retorno -->
+        <field name="transactionId" column="transaction_id" type="string" lenght="100" nullable="true" />
+        <field name="returnedData"  column="returned_data" type="array" nullable="false" />
+        
+        <!-- Status da transação -->
+        <field name="status" column="state" type="smallint" nullable="false" />
+    </mapped-superclass>
+    
+</doctrine-mapping>
