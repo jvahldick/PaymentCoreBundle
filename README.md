@@ -8,7 +8,7 @@ Symfony2 Bundle :: Administração e interligação de objetos junto ao serviço
 Arquivo de configuração padrão.
 
 ``` yaml
-# app/config/security.yml
+# app/config.yml
 ### Coração do pagamento
 jhv_payment_core:
     ### Nome da conexão
