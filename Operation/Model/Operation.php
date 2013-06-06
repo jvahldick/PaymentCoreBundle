@@ -126,5 +126,26 @@ abstract class Operation implements OperationInterface
         
         return $return;
     }
+
+    public function getPendingTransaction()
+    {
+        foreach ($this->transactions as $transaction) {
+            if (TransactionInterface::STATUS_PENDING === $transaction->getStatus()) {
+                return $transaction;
+            }
+        }
+
+        return null;
+    }
+
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
     
 }

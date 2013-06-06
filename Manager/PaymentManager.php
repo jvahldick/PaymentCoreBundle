@@ -45,7 +45,7 @@ class PaymentManager extends PaymentOperator implements PaymentManagerInterface
         return new $class($transaction, $status);
     }
     
-    public function createCredit(PaymentInstructionInterface $instruction, $amount, DebitInterface $debit = null)
+    public function createCredit(PaymentInstructionInterface $instruction, $amount, DebitInterface $debit = null, $flush = true)
     {
         $credit = new $this->classes['credit'];
         $credit->setTargetAmount($amount);
@@ -53,21 +53,25 @@ class PaymentManager extends PaymentOperator implements PaymentManagerInterface
         
         if (null !== $debit)
             $credit->setDebit($debit);
-        
-        $this->entityManager->persist($credit);
-        $this->entityManager->flush();
+
+        if (true === $flush) {
+            $this->entityManager->persist($credit);
+            $this->entityManager->flush();
+        }
         
         return $credit;
     }
     
-    public function createDebit(PaymentInstructionInterface $instruction, $amount)
+    public function createDebit(PaymentInstructionInterface $instruction, $amount, $flush = true)
     {
         $debit = new $this->classes['debit'];
         $debit->setTargetAmount($amount);
         $debit->setInstruction($instruction);
-        
-        $this->entityManager->persist($debit);
-        $this->entityManager->flush();
+
+        if (true === $flush) {
+            $this->entityManager->persist($debit);
+            $this->entityManager->flush();
+        }
         
         return $debit;
     }
@@ -215,6 +219,16 @@ class PaymentManager extends PaymentOperator implements PaymentManagerInterface
 
             throw $failure;
         }
+    }
+
+    /**
+     * Localizar o banco gerenciador dos pagamentos.
+     *
+     * @return EntityManager
+     */
+    public function getEntityManager()
+    {
+        return $this->entityManager;
     }
     
 }

@@ -12,7 +12,7 @@
         </id>
         
         <!-- Valores -->
-        <field name="targetAmount" 	column="target_amount"      type="decimal" scale="5" nullable="false" />
+        <field name="targetAmount" 	    column="target_amount"      type="decimal" scale="5" nullable="false" />
         <field name="processingAmount" 	column="processing_amount"  type="decimal" scale="5" nullable="false" />
         <field name="processedAmount" 	column="processed_amount"   type="decimal" scale="5" nullable="false" />
         <field name="refundedAmount" 	column="refunded_amount"    type="decimal" scale="5" nullable="false" />

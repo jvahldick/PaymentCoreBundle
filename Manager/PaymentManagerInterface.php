@@ -38,7 +38,7 @@ interface PaymentManagerInterface
      * @param type $amount
      * @param \JHV\Payment\CoreBundle\Operation\DebitInterface $debit
      */
-    function createCredit(PaymentInstructionInterface $instruction, $amount, DebitInterface $debit = null);
+    function createCredit(PaymentInstructionInterface $instruction, $amount, DebitInterface $debit = null, $flush = true);
     
     /**
      * Efetua a criação do pagamento.
@@ -48,7 +48,7 @@ interface PaymentManagerInterface
      * @param \JHV\Payment\CoreBundle\Instruction\PaymentInstructionInterface $instruction
      * @param decimal $amount
      */
-    function createDebit(PaymentInstructionInterface $instruction, $amount);
+    function createDebit(PaymentInstructionInterface $instruction, $amount, $flush = true);
     
     /**
      * Localizar instrução de pagamento.

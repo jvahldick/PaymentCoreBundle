@@ -156,15 +156,31 @@ class PaymentInstruction implements PaymentInstructionInterface
     {}
     
     /**
-     * @todo Definir operações do método
+     * @todo fazer descrição
      */
     public function hasPendingTransaction()
-    {}
+    {
+        return null !== $this->getPendingTransaction();
+    }
     
     /**
-     * @todo Definição desta classe
+     * @todo fazer descrição
      */
     public function getPendingTransaction()
-    {}
+    {
+        foreach ($this->getDebitOperations() as $debit) {
+            if (null !== $transaction = $debit->getPendingTransaction()) {
+                return $transaction;
+            }
+        }
+
+        foreach ($this->getCreditOperations() as $credit) {
+            if (null !== $transaction = $credit->getPendingTransaction()) {
+                return $transaction;
+            }
+        }
+
+        return null;
+    }
     
 }
